@@ -1,0 +1,22 @@
+{
+    "files.exclude": {
+        "web": false,
+        "windows": false,
+        "test": false,
+        "ios": false,
+        "build": false,
+        "android": false,
+        ".vscode": false,
+        ".idea": false,
+        ".dart_tool": false,
+        ".metadata": false,
+        ".packages": false,
+        ".gitignore": false,
+        ".flutter-plugins-dependencies": false,
+        ".flutter-plugins": false,
+        "tipo.iml": false,
+        "README.md": false,
+        "lib/generated_plugin_registrant.dart": false
+    },
+    "workspace.isHidden": false
+}
