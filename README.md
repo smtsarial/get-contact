@@ -2,15 +2,25 @@
 
 A new Flutter project.
 
-## Getting Started
+<table>
+  <tr>
+    <td>First Screen Page</td>
+     <td>Holiday Mention</td>
+     <td>Present day in purple and selected day in pink</td>
+  </tr>
+  <tr>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572138.png" width=270></td>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572151.png" width=270></td>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572153.png" width=270></td>
+  </tr> 
+  <tr>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572162.png" width=270></td>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572177.png" width=270></td>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572454.png" width=270></td>
+  </tr>
+   <tr>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572658.png" width=270></td>
+    <td><img src="https://github.com/smtsarial/get-contact/blob/tipo/images/Screenshot_1650572663.png" width=270></td>
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+  </tr>
+ </table>
