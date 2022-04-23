@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:tipo/provider/UserProvider.dart';
 import 'package:tipo/screens/main/settings_screen.dart';
 import 'package:tipo/screens/main/user/myContacts.dart';
+import 'package:tipo/screens/main/user/whosaveme.dart';
 import 'package:tipo/theme.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -17,6 +18,7 @@ class HomeScreen extends StatelessWidget {
 
   final pages = [
     myContactsScreen(),
+    whoSaveMe(),
     SettingsScreen(),
   ];
 
@@ -96,8 +98,15 @@ class __BottomNavigationBarState extends State<_BottomNavigationBar> {
               _NavigationBarItem(
                 index: 1,
                 label: '',
-                icon: CupertinoIcons.settings,
+                icon: CupertinoIcons.infinite,
                 isSelected: (selectedIndex == 1),
+                onTap: handleItemSelected,
+              ),
+              _NavigationBarItem(
+                index: 2,
+                label: '',
+                icon: CupertinoIcons.settings,
+                isSelected: (selectedIndex == 2),
                 onTap: handleItemSelected,
               ),
             ],

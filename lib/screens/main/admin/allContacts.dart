@@ -6,6 +6,8 @@ import 'package:tipo/models/contacts.dart';
 import 'package:tipo/screens/main/admin/openContact.dart';
 import 'package:tipo/theme.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class allContacts extends StatefulWidget {
   const allContacts({Key? key}) : super(key: key);
 
@@ -85,7 +87,7 @@ class _allContactsState extends State<allContacts> {
                         Icons.search,
                         color: PureColor,
                       ),
-                      hintText: "Search",
+                      hintText: AppLocalizations.of(context)!.search,
                     )),
               ),
               SizedBox(

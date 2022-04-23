@@ -1,4 +1,6 @@
+import 'dart:math';
 import 'package:tipo/connections/firebase.dart';
+import 'package:tipo/l10n/l10n.dart';
 import 'package:tipo/provider/UserProvider.dart';
 import 'package:tipo/screens/auth/login.dart';
 import 'package:tipo/screens/main/langing_screen.dart';
@@ -8,6 +10,8 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -48,6 +52,13 @@ class _MyAppState extends State<MyApp> with WidgetsBindingObserver {
             darkTheme: AppTheme.dark(),
             themeMode: ThemeMode.dark,
             title: 'tipo',
+            supportedLocales: L10n.all,
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
             home: (() {
               // your code here
               if (landingRunned != "true") {

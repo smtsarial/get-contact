@@ -5,6 +5,7 @@ import 'package:tipo/models/contacts.dart';
 import 'package:tipo/models/user.dart';
 import 'package:tipo/screens/main/admin/openUser.dart';
 import 'package:tipo/theme.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class HomePageAdmin extends StatefulWidget {
   const HomePageAdmin({Key? key}) : super(key: key);
@@ -96,7 +97,7 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                         Icons.search,
                         color: PureColor,
                       ),
-                      hintText: "Search",
+                      hintText: AppLocalizations.of(context)!.search,
                     )),
               ),
               SizedBox(
@@ -156,12 +157,12 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         Text(
-                          "User",
+                          AppLocalizations.of(context)!.user,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
                         Text(
-                          "Count",
+                          AppLocalizations.of(context)!.count,
                           style: TextStyle(
                               fontWeight: FontWeight.bold, fontSize: 20),
                         ),
@@ -186,12 +187,12 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                     crossAxisAlignment: CrossAxisAlignment.center,
                     children: [
                       Text(
-                        "Contact",
+                        AppLocalizations.of(context)!.contact,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
                       Text(
-                        "Count",
+                        AppLocalizations.of(context)!.user,
                         style: TextStyle(
                             fontWeight: FontWeight.bold, fontSize: 20),
                       ),
@@ -270,7 +271,8 @@ class _HomePageAdminState extends State<HomePageAdmin> {
                                     Icon(Icons.numbers_outlined,
                                         size: 18, color: Colors.yellowAccent),
                                     Text(
-                                        "Total contact count:  " +
+                                        AppLocalizations.of(context)!
+                                                .totalcount +
                                             contacts
                                                 .where((element) =>
                                                     element.addedEmail ==

@@ -1,7 +1,9 @@
 import 'package:contacts_service/contacts_service.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:tipo/main.dart';
 import 'package:tipo/models/contacts.dart';
+import 'package:tipo/screens/main/user/userNavigation.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class ContactScreen extends StatefulWidget {
@@ -20,7 +22,17 @@ class _ContactScreenState extends State<ContactScreen> {
         elevation: 0,
         title: const Text('Contact',
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
-        //actions: const [Icon(Icons.more_vert)],
+        actions: [
+          IconButton(
+              onPressed: () async {
+                await ContactsService.deleteContact(widget.contact).then(
+                    (value) => Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                            builder: ((context) => HomeScreen()))));
+              },
+              icon: Icon(Icons.delete))
+        ],
       ),
       body: ListView(
         children: [

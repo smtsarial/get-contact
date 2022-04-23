@@ -60,9 +60,11 @@ class _myContactsScreenState extends State<myContactsScreen> {
             });
           } else {
             print("This contact added before");
-            setState(() {
-              didUpdated = true;
-            });
+            if (mounted) {
+              setState(() {
+                didUpdated = true;
+              });
+            }
           }
         });
       });
@@ -76,17 +78,19 @@ class _myContactsScreenState extends State<myContactsScreen> {
 
   @override
   void initState() {
-    _getPermission().then((value) {
-      setState(() {
-        permissionStatus = value;
-      });
-      ContactHelper().getAllContacts().then((value) {
+    if (mounted) {
+      _getPermission().then((value) {
         setState(() {
-          contacts = value;
+          permissionStatus = value;
         });
-        updateMyContact(value);
+        ContactHelper().getAllContacts().then((value) {
+          setState(() {
+            contacts = value;
+          });
+          updateMyContact(value);
+        });
       });
-    });
+    }
     //getPermission().then((value) => null);
     super.initState();
   }
@@ -115,6 +119,30 @@ class _myContactsScreenState extends State<myContactsScreen> {
                   ),
                 ),
               ],
+            ),
+            floatingActionButton: FloatingActionButton(
+              child: Icon(Icons.add),
+              backgroundColor: Theme.of(context).primaryColorDark,
+              onPressed: () async {
+                try {
+                  Contact contact = await ContactsService.openContactForm();
+                  if (contact != null) {
+                    ContactHelper().getAllContacts().then((value) {
+                      setState(() {
+                        contacts = value;
+                      });
+                      updateMyContact(value);
+                    });
+                  }
+                } on FormOperationException catch (e) {
+                  switch (e.errorCode) {
+                    case FormOperationErrorCode.FORM_OPERATION_CANCELED:
+                    case FormOperationErrorCode.FORM_COULD_NOT_BE_OPEN:
+                    case FormOperationErrorCode.FORM_OPERATION_UNKNOWN_ERROR:
+                      print(e.toString());
+                  }
+                }
+              },
             ),
             body: Column(
               children: [
@@ -197,13 +225,36 @@ class _myContactsScreenState extends State<myContactsScreen> {
                       itemCount: contacts.length,
                       itemBuilder: (BuildContext context, int index) {
                         return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => ContactScreen(
-                                          contact: contacts.elementAt(index),
-                                        ))));
+                          onTap: () async {
+                            //Navigator.push(
+                            //    context,
+                            //    MaterialPageRoute(
+                            //        builder: ((context) => ContactScreen(
+                            //              contact: contacts.elementAt(index),
+                            //            ))));
+                            try {
+                              Contact contact =
+                                  await ContactsService.openExistingContact(
+                                      contacts.elementAt(index));
+                              if (contact != null) {
+                                ContactHelper().getAllContacts().then((value) {
+                                  setState(() {
+                                    contacts = value;
+                                  });
+                                  updateMyContact(value);
+                                });
+                              }
+                            } on FormOperationException catch (e) {
+                              switch (e.errorCode) {
+                                case FormOperationErrorCode
+                                    .FORM_OPERATION_CANCELED:
+                                case FormOperationErrorCode
+                                    .FORM_COULD_NOT_BE_OPEN:
+                                case FormOperationErrorCode
+                                    .FORM_OPERATION_UNKNOWN_ERROR:
+                                  print(e.toString());
+                              }
+                            }
                           },
                           child: Card(
                             elevation: 8.0,

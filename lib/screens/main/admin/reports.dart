@@ -7,6 +7,7 @@ import 'package:tipo/connections/excelexport.dart';
 import 'package:tipo/models/contacts.dart';
 import 'package:tipo/theme.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AdminReports extends StatefulWidget {
   const AdminReports({Key? key}) : super(key: key);
@@ -63,7 +64,7 @@ class _AdminReportsState extends State<AdminReports> {
               ),
               Expanded(
                 child: Text(
-                  "REPORTS",
+                  AppLocalizations.of(context)!.reports,
                   style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -151,7 +152,9 @@ class _AdminReportsState extends State<AdminReports> {
                                   children: <Widget>[
                                     Icon(Icons.download,
                                         size: 18, color: Colors.yellowAccent),
-                                    Text("Click to download!",
+                                    Text(
+                                        AppLocalizations.of(context)!
+                                            .clickdownload,
                                         style: TextStyle(color: Colors.white))
                                   ],
                                 ),

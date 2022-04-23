@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:tipo/models/contacts.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:timeago/timeago.dart' as timeago;
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OpenContactScreen extends StatefulWidget {
   const OpenContactScreen({Key? key, required this.contact}) : super(key: key);
@@ -17,7 +18,7 @@ class _OpenContactScreenState extends State<OpenContactScreen> {
       appBar: AppBar(
         centerTitle: true,
         elevation: 0,
-        title: const Text('Contact',
+        title: Text(AppLocalizations.of(context)!.contact,
             style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
         //actions: const [Icon(Icons.more_vert)],
       ),
@@ -63,7 +64,7 @@ class _OpenContactScreenState extends State<OpenContactScreen> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Mobile",
+                            AppLocalizations.of(context)!.mobile,
                             style: TextStyle(
                                 fontSize: 20, fontWeight: FontWeight.bold),
                           ),
@@ -134,7 +135,7 @@ class _OpenContactScreenState extends State<OpenContactScreen> {
                   margin: EdgeInsets.all(0),
                   child: Padding(
                     padding: EdgeInsets.all(10.0),
-                    child: Text("Owner Informations",
+                    child: Text(AppLocalizations.of(context)!.ownerinformations,
                         style: TextStyle(
                             fontSize: 20, fontWeight: FontWeight.w500)),
                   ),
@@ -156,7 +157,7 @@ class _OpenContactScreenState extends State<OpenContactScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Adder Name",
+                                  AppLocalizations.of(context)!.addername,
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
@@ -180,7 +181,7 @@ class _OpenContactScreenState extends State<OpenContactScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Adder Email",
+                                  AppLocalizations.of(context)!.adderemail,
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),
@@ -202,7 +203,7 @@ class _OpenContactScreenState extends State<OpenContactScreen> {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Added Time",
+                                  AppLocalizations.of(context)!.addedtime,
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold),

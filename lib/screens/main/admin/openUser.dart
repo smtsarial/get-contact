@@ -7,6 +7,8 @@ import 'package:tipo/models/user.dart';
 import 'package:tipo/screens/main/admin/openContact.dart';
 import 'package:tipo/theme.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 
 class OpenProfile extends StatefulWidget {
   const OpenProfile({Key? key, required this.userData}) : super(key: key);
@@ -121,7 +123,7 @@ class _OpenProfileState extends State<OpenProfile> {
               children: [
                 Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                   Text(
-                    "Mobile",
+                    AppLocalizations.of(context)!.mobile,
                     style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                   ),
                   Text(
@@ -186,7 +188,7 @@ class _OpenProfileState extends State<OpenProfile> {
             ),
             Divider(),
             Center(
-              child: Text("User Contacts",
+              child: Text(AppLocalizations.of(context)!.usercontacts,
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
             ),
             isLoaded

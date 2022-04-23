@@ -1,0 +1,19 @@
+{
+    "language":"English",
+    "@language":{
+        "description":"the current language"
+    },
+    "search":"Search",
+    "user":"User",
+    "count":"Count",
+    "contact":"Contact",
+    "totalcount":"Total contact count:",
+    "addedtime": "Added Time",
+    "adderemail": "Adder Mail",
+    "addername": "Adder Name",
+    "ownerinformations":"Owner Informations",
+    "mobile":"Mobile",
+    "usercontacts":"User Contacts",
+    "clickdownload":"Click to download!",
+    "reports":"Reports"
+}
