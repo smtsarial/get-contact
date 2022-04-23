@@ -304,8 +304,21 @@ class _myContactsScreenState extends State<myContactsScreen> {
                                           style: TextStyle(color: Colors.white))
                                     ],
                                   ),
-                                  trailing: Icon(Icons.keyboard_arrow_right,
-                                      color: Colors.white, size: 30.0)),
+                                  trailing: IconButton(
+                                      onPressed: () async {
+                                        await ContactsService.deleteContact(
+                                                contacts.elementAt(index))
+                                            .then((value) => ContactHelper()
+                                                    .getAllContacts()
+                                                    .then((value) {
+                                                  setState(() {
+                                                    contacts = value;
+                                                  });
+                                                  updateMyContact(value);
+                                                }));
+                                      },
+                                      icon: Icon(Icons.remove,
+                                          color: Colors.white, size: 30.0))),
                             ),
                           ),
                         );
